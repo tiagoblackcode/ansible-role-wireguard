@@ -1,0 +1,23 @@
+---
+# Copyright (C) 2020 Roman Danko
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+- name: (CentOS 8) Install EPEL repository
+  ansible.builtin.dnf:
+    name: epel-release
+    state: present
+
+- name: (CentOS 8) Install ELRepo repository
+  ansible.builtin.dnf:
+    name: elrepo-release
+    state: present
+
+- name: (CentOS 8) Install wireguard package
+  ansible.builtin.dnf:
+    name: "{{ package }}"
+    state: present
+  loop:
+    - kmod-wireguard
+    - wireguard-tools
+  loop_control:
+    loop_var: package
