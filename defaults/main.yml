@@ -57,3 +57,8 @@ wireguard_centos7_installation_method: "standard"
 
 # The default seconds to wait for machine to reboot and respond
 wireguard_centos7_kernel_plus_reboot_timeout: "600"
+
+# When set, skips the [Peer] entry in wireguard against this host.
+# It's particularly useful when there are several hosts under NAT
+# and direct connection between them is not possible.
+wireguard_skip_hosts: ~
